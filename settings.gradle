@@ -1,0 +1,2 @@
+rootProject.name='SplashMenu'
+include ':app'
