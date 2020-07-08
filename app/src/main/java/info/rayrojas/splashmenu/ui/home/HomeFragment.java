@@ -5,6 +5,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +36,35 @@ public class HomeFragment extends Fragment {
     homeViewModel =
         ViewModelProviders.of(this).get(HomeViewModel.class);
     View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+    //Inicio Spinner
+    final String[] categoriasTmp = new String[] {
+        "Camisetas", "Pantalones", "Buzos", "Zapatillas", "Trusas"
+    };
+    final String[] categoriasList = new String[] {
+      "Camisetas", "Pantalones", "Buzos", "Zapatillas", "Trusas"
+    };
+    Spinner spinner = root.findViewById(R.id.categorias);
+    final ArrayAdapter<String> adaptador = new ArrayAdapter<>(this.getContext(),
+        android.R.layout.simple_spinner_item, categoriasList);
+    adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    spinner.setAdapter(adaptador);
+
+    Button sort = root.findViewById(R.id.sort);
+    sort.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        categoriasList[0] = categoriasTmp[2];
+        categoriasList[1] = categoriasTmp[0];
+        categoriasList[2] = categoriasTmp[1];
+        categoriasList[3] = categoriasTmp[4];
+        categoriasList[4] = categoriasTmp[3];
+        adaptador.notifyDataSetChanged();
+      }
+    });
+
+    //Fin Spinner
+
     final TextView textView = root.findViewById(R.id.text_home);
     homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
       @Override

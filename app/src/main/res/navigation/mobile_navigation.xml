@@ -44,6 +44,71 @@
   <fragment android:id="@+id/nav_nosotros"
     android:name="info.rayrojas.splashmenu.ui.nosotros.NosotrosFragment"
     android:label="Nosotros"
-    tools:layout="@layout/nosotros_fragment" />
+    tools:layout="@layout/nosotros_fragment" >
+    <action
+      android:id="@+id/action_nav_nosotros_to_nav_gallery"
+      app:destination="@id/nav_gallery" />
+  </fragment>
+  <fragment
+    android:id="@+id/categoriesFragment"
+    android:name="info.rayrojas.splashmenu.ui.categories.CategoriesFragment"
+    android:label="categories_fragment"
+    tools:layout="@layout/categories_fragment" >
+    <action
+      android:id="@+id/action_categoriesFragment_to_productsFragment"
+      app:destination="@id/productsFragment" />
+    <action
+      android:id="@+id/action_categoriesFragment_to_shoppingFragment"
+      app:destination="@id/shoppingFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/productsFragment"
+    android:name="info.rayrojas.splashmenu.ui.products.ProductsFragment"
+    android:label="ProductsFragment" >
+    <action
+      android:id="@+id/action_productsFragment_to_detailProductFragment"
+      app:destination="@id/detailProductFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/detailProductFragment"
+    android:name="info.rayrojas.splashmenu.ui.products.DetailProductFragment"
+    android:label="detail_product_fragment"
+    tools:layout="@layout/detail_product_fragment" >
+    <action
+      android:id="@+id/action_detailProductFragment_to_shoppingFragment"
+      app:destination="@id/shoppingFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/shoppingFragment"
+    android:name="info.rayrojas.splashmenu.ui.cart.ShoppingFragment"
+    android:label="shopping_fragment"
+    tools:layout="@layout/shopping_fragment" >
+    <action
+      android:id="@+id/action_shoppingFragment_to_shippingFragment"
+      app:destination="@id/shippingFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/checkoutFragment"
+    android:name="info.rayrojas.splashmenu.ui.cart.CheckoutFragment"
+    android:label="checkout_fragment"
+    tools:layout="@layout/checkout_fragment" >
+    <action
+      android:id="@+id/action_checkoutFragment_to_invoiceFragment"
+      app:destination="@id/invoiceFragment" />
+  </fragment>
+  <fragment
+    android:id="@+id/invoiceFragment"
+    android:name="info.rayrojas.splashmenu.ui.cart.InvoiceFragment"
+    android:label="invoice_fragment"
+    tools:layout="@layout/invoice_fragment" />
+  <fragment
+    android:id="@+id/shippingFragment"
+    android:name="info.rayrojas.splashmenu.ui.cart.ShippingFragment"
+    android:label="shipping_fragment"
+    tools:layout="@layout/shipping_fragment" >
+    <action
+      android:id="@+id/action_shippingFragment_to_checkoutFragment"
+      app:destination="@id/checkoutFragment" />
+  </fragment>
 
 </navigation>
